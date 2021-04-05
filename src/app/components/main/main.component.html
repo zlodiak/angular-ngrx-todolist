@@ -1,0 +1,38 @@
+<p>main works!</p>
+
+<pre
+  >{{ (todos$ | async).todos | json }}
+</pre>
+
+<div
+  *ngFor="let todo of (todos$ | async).todos"
+  id="{{ todo.id }}"
+  [ngClass]="{ closed: todo.isCompleted ? true : false }"
+>
+  <span>
+    <input
+      type="checkbox"
+      value="{{ todo.isCompleted }}"
+      (change)="toggleComplete($event, todo.id)"
+    />
+  </span>
+
+  <span>
+    <input type="text" value="{{ todo.text }}" disabled="true" />
+  </span>
+
+  <span>
+    <select
+      (change)="changePriority($event.target.value, todo.id)"
+      [disabled]="todo.isCompleted"
+    >
+      <option
+        *ngFor="let opt of priorityOptions; let i = index"
+        selected="{{ i === todo.priority ? 'selected' : '' }}"
+        value="{{ i }}"
+      >
+        {{ opt }}
+      </option>
+    </select>
+  </span>
+</div>
