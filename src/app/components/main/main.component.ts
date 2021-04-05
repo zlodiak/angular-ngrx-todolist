@@ -1,7 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
-import { editTodoAction, setPriorityTodoAction } from "src/app/store/actions";
+import {
+  toggleTodoAction,
+  setPriorityTodoAction,
+  toggleTodoBackendAction,
+  prioritizeTodoBackendAction,
+} from "src/app/store/actions";
 import { selectTodos } from "src/app/store/selectors";
+import { TodoType } from "src/app/store/state";
 
 @Component({
   selector: "app-main",
@@ -16,11 +22,12 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggleComplete(event: any, id: number) {
-    this.store.dispatch(editTodoAction({ id: id }));
+  toggleComplete(event: any, todo: TodoType) {
+    this.store.dispatch(toggleTodoBackendAction(todo));
   }
 
-  changePriority(value: number, id: number) {
-    this.store.dispatch(setPriorityTodoAction({ priority: value, id: id }));
+  changePriority(priority: number, todo: TodoType) {
+    console.log({ priority, todo });
+    this.store.dispatch(prioritizeTodoBackendAction({ priority, todo }));
   }
 }

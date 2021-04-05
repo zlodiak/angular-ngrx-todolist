@@ -1,25 +1,25 @@
 import { createReducer, on } from "@ngrx/store";
 import {
   addTodoAction,
-  editTodoAction,
+  toggleTodoAction,
   setPriorityTodoAction,
 } from "./actions";
 import { TodoType } from "./state";
 
 export const todosReducer = createReducer(
   { todos: [] },
-  on(addTodoAction, (state, { todo }) => ({
+  on(addTodoAction, (state, todo: TodoType) => ({
     todos: [
       ...state.todos,
       {
-        isCompleted: false,
-        text: todo,
-        priority: 2,
-        id: new Date().getTime() / 1000,
+        id: todo.id,
+        text: todo.text,
+        isCompleted: todo.isCompleted,
+        priority: todo.priority,
       },
     ],
   })),
-  on(editTodoAction, (state, { id }) => ({
+  on(toggleTodoAction, (state, { id }) => ({
     todos: state.todos.map((todo: TodoType) => {
       if (id === todo.id) {
         return {
@@ -32,13 +32,13 @@ export const todosReducer = createReducer(
       return todo;
     }),
   })),
-  on(setPriorityTodoAction, (state, { priority, id }) => ({
+  on(setPriorityTodoAction, (state, t: TodoType) => ({
     todos: state.todos.map((todo: TodoType) => {
-      if (id === todo.id) {
+      if (t.id === todo.id) {
         return {
           id: todo.id,
           isCompleted: todo.isCompleted,
-          priority: +priority,
+          priority: t.priority,
           text: todo.text,
         };
       }

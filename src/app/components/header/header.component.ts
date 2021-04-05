@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { addTodoAction, createTodoAction } from "src/app/store/actions";
+import { TodoType } from "src/app/store/state";
 
 @Component({
   selector: "app-header",
@@ -15,8 +16,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   createTodo(todoText: string) {
-    // this.store.dispatch(addTodoAction({ todo: todoText }));
-    this.store.dispatch(createTodoAction({ todo: todoText }));
+    const todo: TodoType = {
+      isCompleted: false,
+      text: todoText,
+      priority: 2,
+      id: new Date().getTime() / 1000,
+    };
+    this.store.dispatch(createTodoAction(todo));
     this.todoText.nativeElement.value = "";
   }
 }

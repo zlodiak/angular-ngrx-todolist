@@ -1,52 +1,46 @@
 {
   "todos": [
     {
-      "id": 1,
       "isCompleted": false,
-      "text": "qwerty1",
-      "priority": 2
-    },
-    {
-      "id": 2,
-      "isCompleted": false,
-      "text": "qwerty222222",
-      "priority": 2
-    },
-    {
-      "text": "aaaaaaaaaaaaaaa",
-      "isCompleted": true,
+      "text": "sss",
       "priority": 1,
-      "id": 3
+      "id": 1617642228.618
     },
     {
-      "todo": "yyy",
-      "type": "[simple todo] Create todo",
-      "id": 4
+      "isCompleted": false,
+      "text": "yyyy",
+      "priority": 1,
+      "id": 1617642366.882
     },
     {
-      "todo": "rtyrty",
-      "type": "[simple todo] Create todo",
-      "id": 5
+      "isCompleted": false,
+      "text": "ggg",
+      "priority": 1,
+      "id": 1617642550.85
     },
     {
-      "todo": "tttt",
-      "type": "[simple todo] Create todo",
-      "id": 6
+      "isCompleted": false,
+      "text": "gggg",
+      "priority": 2,
+      "id": 1617642662.722
     },
     {
-      "todo": "fghfghf",
-      "type": "[simple todo] Create todo",
-      "id": 7
+      "isCompleted": false,
+      "text": "111",
+      "priority": 1,
+      "id": 1617642714.954
     },
     {
-      "todo": "gggg",
-      "type": "[simple todo] Create todo",
-      "id": 8
+      "id": 1617643713.042,
+      "text": "dfgdfg",
+      "isCompleted": false,
+      "priority": 2
     },
     {
-      "todo": "ffff",
-      "type": "[simple todo] Create todo",
-      "id": 9
+      "isCompleted": true,
+      "text": "fffff",
+      "priority": 2,
+      "id": 1617643763.442
     }
   ]
 }

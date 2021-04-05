@@ -16,4 +16,20 @@ export class TodosService {
   addTodo(todo: TodoType): Observable<any> {
     return this.http.post<any>("http://localhost:3000/todos", todo);
   }
+
+  toggleTodo(todo: TodoType): Observable<any> {
+    return this.http.put<any>("http://localhost:3000/todos/" + todo.id, {
+      isCompleted: todo.isCompleted,
+      text: todo.text,
+      priority: todo.priority,
+    });
+  }
+
+  prioritizeTodo(todo: TodoType): Observable<any> {
+    return this.http.put<any>("http://localhost:3000/todos/" + todo.id, {
+      isCompleted: todo.isCompleted,
+      text: todo.text,
+      priority: todo.priority,
+    });
+  }
 }

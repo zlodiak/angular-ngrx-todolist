@@ -2,23 +2,36 @@ import { createAction, props } from "@ngrx/store";
 import { TodoType } from "./state";
 
 export const createTodoActionType = "[simple todo] Create todo";
+export const toggleTodoBackendActionType = "[simple todo] Toggle todo backend";
+export const prioritizeTodoBackendActionType =
+  "[simple todo] Prioritize todo backend";
 
 export const addTodoAction = createAction(
   "[simple todo] Add todo",
-  props<{ todo }>()
+  props<TodoType>()
 );
 
-export const editTodoAction = createAction(
-  "[simple todo] Edit todo",
-  props<{ id }>()
+export const toggleTodoAction = createAction(
+  "[simple todo] Toggle todo",
+  props<any>()
 );
 
 export const setPriorityTodoAction = createAction(
   "[simple todo] SetPriority todo",
-  props<{ priority: number; id: number }>()
+  props<TodoType>()
 );
 
 export const createTodoAction = createAction(
   createTodoActionType,
-  props<{ todo }>()
+  props<TodoType>()
+);
+
+export const toggleTodoBackendAction = createAction(
+  toggleTodoBackendActionType,
+  props<TodoType>()
+);
+
+export const prioritizeTodoBackendAction = createAction(
+  prioritizeTodoBackendActionType,
+  props<{ priority: number; todo: TodoType }>()
 );

@@ -1,8 +1,8 @@
 export interface TodoType {
   isCompleted: boolean;
   text: string;
-  priority: 0 | 1 | 2;
-  id?: number;
+  priority: number;
+  id?: any;
 }
 
 export interface StateType {

@@ -13,17 +13,17 @@
     <input
       type="checkbox"
       value="{{ todo.isCompleted }}"
-      (change)="toggleComplete($event, todo.id)"
+      (change)="toggleComplete($event, todo)"
     />
   </span>
 
   <span>
-    <input type="text" value="{{ todo.text.todo }}" disabled="true" />
+    <input type="text" value="{{ todo.text }}" disabled="true" />
   </span>
 
   <span>
     <select
-      (change)="changePriority($event.target.value, todo.id)"
+      (change)="changePriority(+$event.target.value, todo)"
       [disabled]="todo.isCompleted"
     >
       <option
