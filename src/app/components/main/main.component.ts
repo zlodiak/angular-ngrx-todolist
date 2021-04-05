@@ -21,7 +21,6 @@ export class MainComponent implements OnInit {
   }
 
   changePriority(value: number, id: number) {
-    console.log(value);
     this.store.dispatch(setPriorityTodoAction({ priority: value, id: id }));
   }
 }

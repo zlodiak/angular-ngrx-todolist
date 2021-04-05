@@ -2,7 +2,7 @@ export interface TodoType {
   isCompleted: boolean;
   text: string;
   priority: 0 | 1 | 2;
-  id: number;
+  id?: number;
 }
 
 export interface StateType {
