@@ -1,13 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Store, select } from "@ngrx/store";
+
 import { TodoType } from "../store/state";
+import { addTodoAction } from "../store/actions";
 
 @Injectable({
   providedIn: "root",
 })
 export class TodosService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
   getTodos(): Observable<any> {
     return this.http.get<any>("http://localhost:3000/todos");
@@ -30,6 +33,14 @@ export class TodosService {
       isCompleted: todo.isCompleted,
       text: todo.text,
       priority: todo.priority,
+    });
+  }
+
+  fillTodos() {
+    this.getTodos().subscribe((todos: TodoType[]) => {
+      todos.forEach((todo: TodoType) => {
+        this.store.dispatch(addTodoAction(todo));
+      });
     });
   }
 }

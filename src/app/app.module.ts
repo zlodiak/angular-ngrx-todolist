@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, APP_INITIALIZER } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { StoreModule } from "@ngrx/store";
@@ -14,6 +14,8 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MainComponent } from "./components/main/main.component";
+import { TodosService } from "./services/todos.service";
+import { appInitializer } from "./initializer";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, MainComponent],
@@ -30,7 +32,14 @@ import { MainComponent } from "./components/main/main.component";
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializer,
+      multi: true,
+      deps: [TodosService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
