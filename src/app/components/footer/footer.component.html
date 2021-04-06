@@ -1,4 +1,19 @@
 <hr />
-<button (click)="setFilter('all')">all</button>
-<button (click)="setFilter('active')">active</button>
-<button (click)="setFilter('completed')">completed</button>
+<button
+  (click)="setFilter('all')"
+  [ngClass]="{ selected: (filterValue$ | async).filter === 'all' }"
+>
+  all
+</button>
+<button
+  (click)="setFilter('active')"
+  [ngClass]="{ selected: (filterValue$ | async).filter === 'active' }"
+>
+  active
+</button>
+<button
+  (click)="setFilter('completed')"
+  [ngClass]="{ selected: (filterValue$ | async).filter === 'completed' }"
+>
+  completed
+</button>

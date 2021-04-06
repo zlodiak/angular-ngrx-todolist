@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { setFilterAction } from "src/app/store/actions";
+import { selectFilterValue } from "src/app/store/selectors";
 
 @Component({
   selector: "app-footer",
@@ -8,6 +9,8 @@ import { setFilterAction } from "src/app/store/actions";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent implements OnInit {
+  filterValue$ = this.store.pipe(select(selectFilterValue));
+
   constructor(private store: Store) {}
 
   ngOnInit() {}
