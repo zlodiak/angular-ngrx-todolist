@@ -20,7 +20,7 @@ export const todosReducer = createReducer(
       },
     ],
   })),
-  on(clearTodosAction, (state, todo: TodoType) => ({
+  on(clearTodosAction, (state) => ({
     todos: [],
   })),
   on(toggleTodoAction, (state, { id }) => ({
