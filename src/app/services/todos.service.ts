@@ -38,7 +38,7 @@ export class TodosService {
   }
 
   fillTodos() {
-    timer(0, 10000)
+    timer(0, 60000)
       .pipe(switchMap(() => this.getTodos()))
       .subscribe((todos: TodoType[]) => {
         this.store.dispatch(clearTodosAction());

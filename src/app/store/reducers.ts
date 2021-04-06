@@ -4,6 +4,7 @@ import {
   toggleTodoAction,
   setPriorityTodoAction,
   clearTodosAction,
+  setFilterAction,
 } from "./actions";
 import { TodoType } from "./state";
 
@@ -48,5 +49,12 @@ export const todosReducer = createReducer(
       }
       return todo;
     }),
+  }))
+);
+
+export const filterReducer = createReducer(
+  { filter: "all" },
+  on(setFilterAction, (state, v: { filterValue: string }) => ({
+    filter: v.filterValue,
   }))
 );

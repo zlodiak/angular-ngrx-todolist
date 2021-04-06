@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
 
 import { environment } from "src/environments/environment";
-import { todosReducer } from "./store/reducers";
+import { filterReducer, todosReducer } from "./store/reducers";
 import { TodosEffects } from "./store/effects";
 
 import { AppComponent } from "./app.component";
@@ -25,6 +25,7 @@ import { appInitializer } from "./initializer";
     StoreModule.forRoot({}, {}),
     StoreModule.forRoot({
       todos: todosReducer,
+      filter: filterReducer,
     }),
     EffectsModule.forRoot([TodosEffects]),
     StoreDevtoolsModule.instrument({

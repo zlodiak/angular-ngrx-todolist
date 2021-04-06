@@ -1,22 +1,10 @@
 {
   "todos": [
     {
+      "id": 1617702093.447,
+      "text": "df",
       "isCompleted": false,
-      "text": "ffff2222f",
-      "priority": 2,
-      "id": 1617643763.442
-    },
-    {
-      "isCompleted": false,
-      "text": "gggg",
-      "priority": 1,
-      "id": 1617647621.706
-    },
-    {
-      "isCompleted": false,
-      "text": "as",
-      "priority": 2,
-      "id": 1617643763.443
+      "priority": 2
     }
   ]
 }

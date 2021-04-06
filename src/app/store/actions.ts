@@ -37,3 +37,8 @@ export const prioritizeTodoBackendAction = createAction(
   prioritizeTodoBackendActionType,
   props<{ priority: number; todo: TodoType }>()
 );
+
+export const setFilterAction = createAction(
+  "[simple filter] Set filter",
+  props<{ filterValue: string }>()
+);
