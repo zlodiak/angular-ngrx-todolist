@@ -3,30 +3,34 @@
   id="{{ todo.id }}"
   [ngClass]="{ closed: todo.isCompleted ? true : false }"
 >
-  <span>
-    <input
-      type="checkbox"
-      value="{{ todo.isCompleted }}"
-      (change)="toggleComplete($event, todo)"
-    />
-  </span>
+  <ng-container
+    *ngIf="checkFilter((this.filterValue$ | async).filter, todo.isCompleted)"
+  >
+    <span>
+      <input
+        type="checkbox"
+        value="{{ todo.isCompleted }}"
+        (change)="toggleComplete($event, todo)"
+      />
+    </span>
 
-  <span>
-    <input type="text" value="{{ todo.text }}" disabled="true" />
-  </span>
+    <span>
+      <input type="text" value="{{ todo.text }}" disabled="true" />
+    </span>
 
-  <span>
-    <select
-      (change)="changePriority(+$event.target.value, todo)"
-      [disabled]="todo.isCompleted"
-    >
-      <option
-        *ngFor="let opt of priorityOptions; let i = index"
-        selected="{{ i === todo.priority ? 'selected' : '' }}"
-        value="{{ i }}"
+    <span>
+      <select
+        (change)="changePriority(+$event.target.value, todo)"
+        [disabled]="todo.isCompleted"
       >
-        {{ opt }}
-      </option>
-    </select>
-  </span>
+        <option
+          *ngFor="let opt of priorityOptions; let i = index"
+          selected="{{ i === todo.priority ? 'selected' : '' }}"
+          value="{{ i }}"
+        >
+          {{ opt }}
+        </option>
+      </select>
+    </span>
+  </ng-container>
 </div>

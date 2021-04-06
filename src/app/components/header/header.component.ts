@@ -16,6 +16,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   createTodo(todoText: string) {
+    if (!todoText.trim()) {
+      return;
+    }
     const todo: TodoType = {
       isCompleted: false,
       text: todoText,

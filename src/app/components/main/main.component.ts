@@ -6,7 +6,7 @@ import {
   toggleTodoBackendAction,
   prioritizeTodoBackendAction,
 } from "src/app/store/actions";
-import { selectTodos } from "src/app/store/selectors";
+import { selectFilterValue, selectTodos } from "src/app/store/selectors";
 import { TodoType } from "src/app/store/state";
 
 @Component({
@@ -15,6 +15,7 @@ import { TodoType } from "src/app/store/state";
   styleUrls: ["./main.component.scss"],
 })
 export class MainComponent implements OnInit {
+  filterValue$ = this.store.pipe(select(selectFilterValue));
   todos$ = this.store.pipe(select(selectTodos));
   priorityOptions = ["High", "Medium", "Low"];
 
@@ -27,7 +28,14 @@ export class MainComponent implements OnInit {
   }
 
   changePriority(priority: number, todo: TodoType) {
-    console.log({ priority, todo });
     this.store.dispatch(prioritizeTodoBackendAction({ priority, todo }));
+  }
+
+  checkFilter(globalFilter: string, todoIsCimpleted: boolean) {
+    return (
+      (globalFilter === "completed" && todoIsCimpleted) ||
+      (globalFilter === "active" && !todoIsCimpleted) ||
+      globalFilter === "all"
+    );
   }
 }
