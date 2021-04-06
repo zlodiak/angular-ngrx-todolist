@@ -18,4 +18,8 @@
   completed
 </button>
 
-<div>active items: {{ (activeItems$ | async)?.length }}</div>
+<div>active items: {{ activeItems$ | async }}</div>
+
+<br />
+
+<button (click)="clearCompleted()">clear completed</button>

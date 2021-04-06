@@ -12,10 +12,8 @@ export const selectFilterValue = createSelector(
 export const selectActiveItems = createSelector(
   todosState,
   (todos: TodoType[]) => {
-    return todos["todos"].filter((todo: TodoType) => {
-      if (!todo.isCompleted) {
-        return todo;
-      }
-    });
+    return todos["todos"]
+      .filter((todo: TodoType) => !todo.isCompleted)
+      .reduce((sum, _) => sum + 1, 0);
   }
 );

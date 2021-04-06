@@ -19,4 +19,6 @@ export class FooterComponent implements OnInit {
   setFilter(filterValue: string) {
     this.store.dispatch(setFilterAction({ filterValue }));
   }
+
+  clearCompleted() {}
 }

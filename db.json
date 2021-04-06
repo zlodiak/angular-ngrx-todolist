@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "isCompleted": true,
+      "isCompleted": false,
       "text": "df",
       "priority": 1,
       "id": 1617702093.447
@@ -19,7 +19,7 @@
       "id": 1617703986.855
     },
     {
-      "isCompleted": true,
+      "isCompleted": false,
       "text": "111",
       "priority": 0,
       "id": 1617708274.423
