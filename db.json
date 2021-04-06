@@ -2,54 +2,18 @@
   "todos": [
     {
       "isCompleted": false,
-      "text": "sss",
-      "priority": 1,
-      "id": 1617642228.618
-    },
-    {
-      "isCompleted": false,
-      "text": "yyyy",
-      "priority": 0,
-      "id": 1617642366.882
-    },
-    {
-      "isCompleted": true,
-      "text": "ggg",
-      "priority": 1,
-      "id": 1617642550.85
-    },
-    {
-      "isCompleted": false,
-      "text": "gggg",
-      "priority": 0,
-      "id": 1617642662.722
-    },
-    {
-      "isCompleted": true,
-      "text": "111",
-      "priority": 1,
-      "id": 1617642714.954
-    },
-    {
-      "isCompleted": false,
-      "text": "dfgdfg",
-      "priority": 0,
-      "id": 1617643713.042
-    },
-    {
-      "isCompleted": true,
-      "text": "fffff",
+      "text": "ffff2222f",
       "priority": 2,
       "id": 1617643763.442
     },
     {
-      "isCompleted": true,
+      "isCompleted": false,
       "text": "gggg",
       "priority": 1,
       "id": 1617647621.706
     },
     {
-      "isCompleted": true,
+      "isCompleted": false,
       "text": "as",
       "priority": 2,
       "id": 1617643763.443

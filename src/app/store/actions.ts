@@ -6,6 +6,8 @@ export const toggleTodoBackendActionType = "[simple todo] Toggle todo backend";
 export const prioritizeTodoBackendActionType =
   "[simple todo] Prioritize todo backend";
 
+export const clearTodosAction = createAction("[simple todo] Clear todos");
+
 export const addTodoAction = createAction(
   "[simple todo] Add todo",
   props<TodoType>()

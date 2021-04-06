@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Store, select } from "@ngrx/store";
+import { Observable, timer } from "rxjs";
+import { Store } from "@ngrx/store";
 
 import { TodoType } from "../store/state";
-import { addTodoAction } from "../store/actions";
+import { addTodoAction, clearTodosAction } from "../store/actions";
+import { switchMap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -37,10 +38,13 @@ export class TodosService {
   }
 
   fillTodos() {
-    this.getTodos().subscribe((todos: TodoType[]) => {
-      todos.forEach((todo: TodoType) => {
-        this.store.dispatch(addTodoAction(todo));
+    timer(0, 10000)
+      .pipe(switchMap(() => this.getTodos()))
+      .subscribe((todos: TodoType[]) => {
+        this.store.dispatch(clearTodosAction());
+        todos.forEach((todo: TodoType) => {
+          this.store.dispatch(addTodoAction(todo));
+        });
       });
-    });
   }
 }

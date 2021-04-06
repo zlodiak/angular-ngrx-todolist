@@ -3,6 +3,7 @@ import {
   addTodoAction,
   toggleTodoAction,
   setPriorityTodoAction,
+  clearTodosAction,
 } from "./actions";
 import { TodoType } from "./state";
 
@@ -18,6 +19,9 @@ export const todosReducer = createReducer(
         priority: todo.priority,
       },
     ],
+  })),
+  on(clearTodosAction, (state, todo: TodoType) => ({
+    todos: [],
   })),
   on(toggleTodoAction, (state, { id }) => ({
     todos: state.todos.map((todo: TodoType) => {
