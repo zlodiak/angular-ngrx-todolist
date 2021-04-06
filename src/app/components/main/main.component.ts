@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import {
-  toggleTodoAction,
-  setPriorityTodoAction,
   toggleTodoBackendAction,
   prioritizeTodoBackendAction,
+  deleteTodoAction,
 } from "src/app/store/actions";
 import { selectFilterValue, selectTodos } from "src/app/store/selectors";
 import { TodoType } from "src/app/store/state";

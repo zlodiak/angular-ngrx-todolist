@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "isCompleted": false,
+      "isCompleted": true,
       "text": "df",
       "priority": 1,
       "id": 1617702093.447
@@ -13,34 +13,16 @@
       "id": 1617703985.055
     },
     {
-      "isCompleted": true,
+      "isCompleted": false,
       "text": "wewe",
       "priority": 2,
       "id": 1617703986.855
     },
     {
-      "id": 1617704665.471,
-      "text": "ggggg",
       "isCompleted": false,
-      "priority": 2
-    },
-    {
-      "id": 1617704665.727,
-      "text": "",
-      "isCompleted": false,
-      "priority": 2
-    },
-    {
-      "id": 1617704763.191,
-      "text": "dfgdfg",
-      "isCompleted": false,
-      "priority": 2
-    },
-    {
-      "id": 1617704765.198,
-      "text": "gg",
-      "isCompleted": false,
-      "priority": 2
+      "text": "111",
+      "priority": 0,
+      "id": 1617708274.423
     }
   ]
 }

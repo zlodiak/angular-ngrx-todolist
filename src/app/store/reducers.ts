@@ -5,6 +5,7 @@ import {
   setPriorityTodoAction,
   clearTodosAction,
   setFilterAction,
+  deleteTodoAction,
 } from "./actions";
 import { TodoType } from "./state";
 
