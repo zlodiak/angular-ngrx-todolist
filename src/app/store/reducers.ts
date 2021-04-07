@@ -5,12 +5,19 @@ import {
   setPriorityTodoAction,
   clearTodosAction,
   setFilterAction,
+  clearCompletedTodosAction,
   deleteTodoAction,
 } from "./actions";
 import { TodoType } from "./state";
 
 export const todosReducer = createReducer(
   { todos: [] },
+  on(deleteTodoAction, (state, res: { id: number }) => ({
+    todos: state.todos.filter((todo: TodoType) => res.id !== todo.id),
+  })),
+  on(clearCompletedTodosAction, (state) => ({
+    todos: state.todos.filter((todo: TodoType) => !todo.isCompleted),
+  })),
   on(addTodoAction, (state, todo: TodoType) => ({
     todos: [
       ...state.todos,

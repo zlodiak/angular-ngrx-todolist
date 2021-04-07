@@ -5,8 +5,20 @@ export const createTodoActionType = "[simple todo] Create todo";
 export const toggleTodoBackendActionType = "[simple todo] Toggle todo backend";
 export const prioritizeTodoBackendActionType =
   "[simple todo] Prioritize todo backend";
+export const deleteTodoBackendAction = createAction(
+  "[simple todo] Delete todo backend",
+  props<{ id: number }>()
+);
+
+export const deleteTodoAction = createAction(
+  "[simple todo] Delete todo",
+  props<{ id: number }>()
+);
 
 export const clearTodosAction = createAction("[simple todo] Clear todos");
+export const clearCompletedTodosAction = createAction(
+  "[simple todo] Clear completed todos"
+);
 
 export const addTodoAction = createAction(
   "[simple todo] Add todo",
@@ -41,4 +53,8 @@ export const prioritizeTodoBackendAction = createAction(
 export const setFilterAction = createAction(
   "[simple filter] Set filter",
   props<{ filterValue: string }>()
+);
+
+export const clearCompletedTodoBackendAction = createAction(
+  prioritizeTodoBackendActionType
 );

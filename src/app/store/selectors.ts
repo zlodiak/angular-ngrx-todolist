@@ -9,11 +9,19 @@ export const selectFilterValue = createSelector(
   filterState,
   (filterValue) => filterValue
 );
-export const selectActiveItems = createSelector(
+
+export const selectActiveItemsCount = createSelector(
   todosState,
   (todos: TodoType[]) => {
     return todos["todos"]
       .filter((todo: TodoType) => !todo.isCompleted)
       .reduce((sum, _) => sum + 1, 0);
+  }
+);
+
+export const selectUnactiveItems = createSelector(
+  todosState,
+  (todos: TodoType[]) => {
+    return todos["todos"].filter((todo: TodoType) => todo.isCompleted);
   }
 );

@@ -7,6 +7,8 @@ import { TodosService } from "../services/todos.service";
 import {
   addTodoAction,
   createTodoActionType,
+  deleteTodoAction,
+  deleteTodoBackendAction,
   prioritizeTodoBackendActionType,
   setPriorityTodoAction,
   toggleTodoAction,
@@ -82,6 +84,20 @@ export class TodosEffects {
             }),
             catchError(() => EMPTY)
           )
+      )
+    )
+  );
+
+  clearCompletedTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteTodoBackendAction),
+      mergeMap((res: { id: number }) =>
+        this.todosService.deleteTodo(res.id).pipe(
+          map(() => {
+            return deleteTodoAction({ id: res.id });
+          }),
+          catchError(() => EMPTY)
+        )
       )
     )
   );

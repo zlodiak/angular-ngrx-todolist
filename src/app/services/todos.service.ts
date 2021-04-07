@@ -29,6 +29,10 @@ export class TodosService {
     });
   }
 
+  deleteTodo(id: number): Observable<any> {
+    return this.http.delete<any>("http://localhost:3000/todos/" + id);
+  }
+
   prioritizeTodo(todo: TodoType): Observable<any> {
     return this.http.put<any>("http://localhost:3000/todos/" + todo.id, {
       isCompleted: todo.isCompleted,

@@ -1,7 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { select, Store } from "@ngrx/store";
-import { setFilterAction } from "src/app/store/actions";
-import { selectFilterValue, selectActiveItems } from "src/app/store/selectors";
+import {
+  deleteTodoAction,
+  deleteTodoBackendAction,
+  setFilterAction,
+} from "src/app/store/actions";
+import {
+  selectFilterValue,
+  selectActiveItemsCount,
+  selectUnactiveItems,
+} from "src/app/store/selectors";
+import { TodoType } from "src/app/store/state";
 
 @Component({
   selector: "app-footer",
@@ -10,7 +19,8 @@ import { selectFilterValue, selectActiveItems } from "src/app/store/selectors";
 })
 export class FooterComponent implements OnInit {
   filterValue$ = this.store.pipe(select(selectFilterValue));
-  activeItems$ = this.store.pipe(select(selectActiveItems));
+  activeItems$ = this.store.pipe(select(selectActiveItemsCount));
+  unactiveItems$ = this.store.pipe(select(selectUnactiveItems));
 
   constructor(private store: Store) {}
 
@@ -20,5 +30,12 @@ export class FooterComponent implements OnInit {
     this.store.dispatch(setFilterAction({ filterValue }));
   }
 
-  clearCompleted() {}
+  clearCompleted() {
+    this.unactiveItems$.subscribe((todos: TodoType[]) => {
+      todos.forEach((todo: TodoType) => {
+        this.store.dispatch(deleteTodoBackendAction({ id: todo.id }));
+        // this.store.dispatch(deleteTodoAction({ id: todo.id }));
+      });
+    });
+  }
 }
